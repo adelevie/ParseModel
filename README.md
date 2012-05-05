@@ -28,7 +28,7 @@ p.saveEventually
 
 ## Installation
 
-For now, just copy `parse_model.rb` into your `app` folder. Gemification [coming soon](http://twitter.com/#!/lrz/status/198838758395744257).
+For now, just copy `parse_model.rb` into your `app` folder. Gemification [coming soon](http://twitter.com/#!/lrz/status/198781031619379202).
 
 Somewhere in your code, such as `app/app_delegate.rb` set your API keys:
 
