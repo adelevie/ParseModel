@@ -26,6 +26,23 @@ p.saveEventually
 
 `Parse::Model` objects will `respond_to?` to all methods available to [`PFObject`](https://parse.com/docs/ios/api/Classes/PFObject.html) in the Parse iOS SDK. You can also access the `PFObject` instance directly with, you guessed it, `Parse::Model#PFObject`.
 
+### Queries
+
+For now, just use Parse's native methods:
+
+```ruby
+query = PFQuery.queryWithClassName("Post")
+query.whereKey("title", equalTo:"Why RubyMotion Is Better Than Objective-C")
+results = query.findObjects
+```
+
+Note that this will return an `Array` of `PFObjects`, not `Parse::Model` objects. To convert, just pass the `PFObject` instance into `Parse::Model#new`:
+
+```ruby
+results.map! {|result| Post.new(result)}
+```
+
+
 ## Installation
 
 For now, just copy `parse_model.rb` into your `app` folder. Gemification [coming soon](http://twitter.com/#!/lrz/status/198781031619379202).
