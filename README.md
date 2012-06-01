@@ -26,6 +26,25 @@ p.saveEventually
 
 `Parse::Model` objects will `respond_to?` to all methods available to [`PFObject`](https://parse.com/docs/ios/api/Classes/PFObject.html) in the Parse iOS SDK. You can also access the `PFObject` instance directly with, you guessed it, `Parse::Model#PFObject`.
 
+### Users
+
+```ruby
+class User
+  include Parse::User
+end
+
+user = User.new
+user.username = "adelevie"
+user.email = "adelevie@gmail.com"
+user.password = "foobar"
+user.signUp
+
+users = User.all # for more User query methods, see: https://parse.com/questions/why-does-querying-for-a-user-create-a-second-user-class 
+users.map {|u| u.objectId}.include?(user.objectId) #=> true
+```
+
+`Parse::User` delegates to `PFUser` in a very similar fashion as `Parse::Model` delegates to `PFOBject`.
+
 ### Queries
 
 For now, just use Parse's native methods:
