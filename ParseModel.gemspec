@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Alan deLevie"]
   s.email       = ["adelevie@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{An Active Record pattern for your Parse models on RubyMotion.}
+  s.description = %q{An Active Record pattern for your Parse models on RubyMotion.}
 
   s.rubyforge_project = "ParseModel"
 
