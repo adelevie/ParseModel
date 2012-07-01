@@ -64,7 +64,9 @@ results.map! {|result| Post.new(result)}
 
 ## Installation
 
-For now, just copy `parse_model.rb` into your `app` folder. Gemification [coming soon](http://twitter.com/#!/lrz/status/198781031619379202).
+Either `gem install parse-model` then `require 'parse-model'` in your `Rakefile`, OR
+
+`gem "parse-model"` in your Gemfile. ([Instructions for Bundler setup with Rubymotion)](http://thunderboltlabs.com/posts/using-bundler-with-rubymotion)
 
 Somewhere in your code, such as `app/app_delegate.rb` set your API keys:
 
@@ -73,3 +75,7 @@ Parse.setApplicationId("1234567890", clientKey:"abcdefghijk")
 ```
 
 To install the Parse iOS SDK in your RubyMotion project, read [this](http://www.rubymotion.com/developer-center/guides/project-management/#_using_3rd_party_libraries) and  [this](http://stackoverflow.com/a/10453895/94154).
+
+## License
+
+See LICENSE.txt
