@@ -3,13 +3,13 @@ $:.push File.expand_path("../lib", __FILE__)
 require "ParseModel/version"
 
 Gem::Specification.new do |s|
-  s.name        = "parse-model"
+  s.name        = "ParseModel"
   s.version     = ParseModel::VERSION
   s.authors     = ["Alan deLevie"]
   s.email       = ["adelevie@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{An Active Record pattern for your Parse models on RubyMotion.}
-  s.description = %q{A convenient syntax layer for defining Parse models.}
+  s.summary     = %q{TODO: Write a gem summary}
+  s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "ParseModel"
 
