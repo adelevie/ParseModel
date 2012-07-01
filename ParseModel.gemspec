@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "ParseModel/version"
 
 Gem::Specification.new do |s|
-  s.name        = "ParseModel"
+  s.name        = "parse-model"
   s.version     = ParseModel::VERSION
   s.authors     = ["Alan deLevie"]
   s.email       = ["adelevie@gmail.com"]
