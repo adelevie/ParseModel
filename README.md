@@ -8,7 +8,7 @@ Create a model:
 
 ```ruby
 class Post
-  include Parse::Model
+  include ParseModel::Model
 
   fields :title, :body, :author
 end
@@ -24,13 +24,13 @@ p.body = "trololol"
 p.saveEventually
 ```
 
-`Parse::Model` objects will `respond_to?` to all methods available to [`PFObject`](https://parse.com/docs/ios/api/Classes/PFObject.html) in the Parse iOS SDK. You can also access the `PFObject` instance directly with, you guessed it, `Parse::Model#PFObject`.
+`ParseModel::Model` objects will `respond_to?` to all methods available to [`PFObject`](https://parse.com/docs/ios/api/Classes/PFObject.html) in the Parse iOS SDK. You can also access the `PFObject` instance directly with, you guessed it, `ParseModel::Model#PFObject`.
 
 ### Users
 
 ```ruby
 class User
-  include Parse::User
+  include ParseModel::User
 end
 
 user = User.new
@@ -43,7 +43,7 @@ users = User.all # for more User query methods, see: https://parse.com/questions
 users.map {|u| u.objectId}.include?(user.objectId) #=> true
 ```
 
-`Parse::User` delegates to `PFUser` in a very similar fashion as `Parse::Model` delegates to `PFOBject`.
+`ParseModel::User` delegates to `PFUser` in a very similar fashion as `ParseModel::Model` delegates to `PFOBject`.
 
 ### Queries
 
@@ -55,7 +55,7 @@ query.whereKey("title", equalTo:"Why RubyMotion Is Better Than Objective-C")
 results = query.findObjects
 ```
 
-Note that this will return an `Array` of `PFObjects`, not `Parse::Model` objects. To convert, just pass the `PFObject` instance into `Parse::Model#new`:
+Note that this will return an `Array` of `PFObjects`, not `ParseModel::Model` objects. To convert, just pass the `PFObject` instance into `ParseModel::Model#new`:
 
 ```ruby
 results.map! {|result| Post.new(result)}
@@ -64,9 +64,9 @@ results.map! {|result| Post.new(result)}
 
 ## Installation
 
-Either `gem install parse-model` then `require 'parse-model'` in your `Rakefile`, OR
+Either `gem install ParseModel` then `require 'ParseModel'` in your `Rakefile`, OR
 
-`gem "parse-model"` in your Gemfile. ([Instructions for Bundler setup with Rubymotion)](http://thunderboltlabs.com/posts/using-bundler-with-rubymotion)
+`gem "ParseModel"` in your Gemfile. ([Instructions for Bundler setup with Rubymotion)](http://thunderboltlabs.com/posts/using-bundler-with-rubymotion)
 
 Somewhere in your code, such as `app/app_delegate.rb` set your API keys:
 
