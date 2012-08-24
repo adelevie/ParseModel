@@ -1,5 +1,4 @@
-
-module Parse
+module ParseModel
   module User
     attr_accessor :PFUser
     

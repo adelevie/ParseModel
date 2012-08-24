@@ -1,4 +1,4 @@
-module Parse
+module ParseModel
   module Model
     attr_accessor :PFObject
     
