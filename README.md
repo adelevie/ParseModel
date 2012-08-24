@@ -64,9 +64,9 @@ results.map! {|result| Post.new(result)}
 
 ## Installation
 
-Either `gem install ParseModel` then `require 'ParseModel'` in your `Rakefile`, OR
+Either `gem install parse-model` then `require 'parse-model'` in your `Rakefile`, OR
 
-`gem "ParseModel"` in your Gemfile. ([Instructions for Bundler setup with Rubymotion)](http://thunderboltlabs.com/posts/using-bundler-with-rubymotion)
+`gem "parse-model"` in your Gemfile. ([Instructions for Bundler setup with Rubymotion)](http://thunderboltlabs.com/posts/using-bundler-with-rubymotion)
 
 Somewhere in your code, such as `app/app_delegate.rb` set your API keys:
 
