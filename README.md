@@ -2,6 +2,15 @@
 
 ParseModel provides an Active Record pattern to your Parse models on RubyMotion.
 
+I'm using ParseModel internally for a project, slowly but surely making it much, much better. When the project is near completion, I'm going to extract additional functionality into the gem.
+
+Some features to expect:
+* Easier queries (`Post.where(:author => @author)`)
+* Associations (`class Post; include Parse::Model; has_one :author; end`)
+* Overall, a much more Ruby-esque API that still leaves full access to all of the features in the Parse iOS SDK
+
+If you have any questions or suggestions, email me.
+
 ## Usage
 
 Create a model:
