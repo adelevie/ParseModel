@@ -127,7 +127,7 @@ Because I want Parse's documentation to be as relevant as possible, here's how I
 	<tr>
 		<td>`ParseModel::Query#count(&block)`</td>
 		<td>`PFQuery#countObjectsInBackgroundWithBlock`</td>
-		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock'>here</a>:</td>
+		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:'>here</a></td>
 	</tr>
 </table>
 
