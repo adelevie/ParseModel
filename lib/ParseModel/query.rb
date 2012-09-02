@@ -38,6 +38,14 @@ module ParseModel
       end)
     end
 
+    def count(&block)
+      return self.countObjects unless block_given?
+
+      self.countObjectsInBackgroundWithBlock(lambda do |count, error|
+        block.call(count, error)
+      end)
+    end
+
 	end
 
 end
