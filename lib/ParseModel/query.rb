@@ -29,6 +29,15 @@ module ParseModel
     	end)
     end
 
+    def get(id, &block)
+      return @classObject.new(self.getObjectWithId(id)) unless block_given?
+
+      self.getObjectInBackgroundWithId(id, block:lambda do |object, error|
+        obj = @classObject.new(object) if object
+        block.call(obj, error)
+      end)
+    end
+
 	end
 
 end
