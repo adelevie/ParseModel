@@ -55,7 +55,7 @@ users.map {|u| u.objectId}.include?(user.objectId) #=> true
 
 ```ruby
 if User.current_user
-	@user = User.current_user
+  @user = User.current_user
 end
 ```
 
@@ -73,7 +73,7 @@ query.find # finds objects in the main thread, like PFQuery#findObjects
 # Or run the query in a background thread
 
 query.find do |objects, error|
-	puts "You have #{objects.length} objects of class #{objects.first.class}."
+  puts "You have #{objects.length} objects of class #{objects.first.class}."
 end
 ```
 
