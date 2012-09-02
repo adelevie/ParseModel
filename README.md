@@ -4,7 +4,7 @@ ParseModel provides an Active Record pattern to your Parse models on RubyMotion.
 
 I'm using ParseModel internally for a project, slowly but surely making it much, much better. When the project is near completion, I'm going to extract additional functionality into the gem.
 
-Expect a much more Ruby-esque API that still leaves full access to all of the features in the Parse iOS SDK. I'm not trying to re-implement featurs from the Parse iOS SDK, I just want to make them easier to use. Moreover, you should be able to rely on [Parse's iOS docs](https://parse.com/docs/ios/api/) when using ParseModel.
+Expect a much more Ruby-esque API that still leaves full access to all of the features in the Parse iOS SDK. I'm not trying to re-implement features from the Parse iOS SDK, I just want to make them easier to use. Moreover, you should be able to rely on [Parse's iOS docs](https://parse.com/docs/ios/api/) when using ParseModel.
 
 If you have any questions or suggestions, email me.
 
@@ -125,7 +125,7 @@ Because I want Parse's documentation to be as relevant as possible, here's how I
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjects'>here</a></td>
 	</tr>
 	<tr>
-		<td>`ParseModel::Query#count(&block)`</td>
+		<td>`ParseModel::Query#count(&block)` (not yet implemented)</td>
 		<td>`PFQuery#countObjectsInBackgroundWithBlock`</td>
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:'>here</a></td>
 	</tr>
