@@ -100,32 +100,32 @@ Because I want Parse's documentation to be as relevant as possible, here's how I
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:'>here</a></td>
 	</tr>
 	<tr>
-		<td>`ParseModel::Query#getFirst` (not yet implemented)</td>
+		<td>`ParseModel::Query#getFirst`</td>
 		<td>`PFQuery#getFirstObject`</td>
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObject'>here</a></td>
 	</tr>
 	<tr>
-		<td>`ParseModel::Query#getFirst(&block)` (not yet implemented)</td>
+		<td>`ParseModel::Query#getFirst(&block)`</td>
 		<td>`PFQuery#getFirstObjectInBackgroundWithBlock`</td>
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:'>here</a></td>
 	</tr>
 	<tr>
-		<td>`ParseModel::Query#get(id)` (not yet implemented)</td>
+		<td>`ParseModel::Query#get(id)`</td>
 		<td>`PFQuery#getObjectWithId`</td>
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObject'>here</a></td>
 	</tr>
 	<tr>
-		<td>`ParseModel::Query#get(id, &block)` (not yet implemented)/td>
+		<td>`ParseModel::Query#get(id, &block)`</td>
 		<td>`PFQuery#getObjectInBackgroundWithId:block:`</td>
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:'>here</a></td>
 	</tr>
 	<tr>
-		<td>`ParseModel::Query#count` (not yet implemented)</td>
+		<td>`ParseModel::Query#count`</td>
 		<td>`PFQuery#countObjects`</td>
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjects'>here</a></td>
 	</tr>
 	<tr>
-		<td>`ParseModel::Query#count(&block)` (not yet implemented)</td>
+		<td>`ParseModel::Query#count(&block)`</td>
 		<td>`PFQuery#countObjectsInBackgroundWithBlock`</td>
 		<td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:'>here</a></td>
 	</tr>
