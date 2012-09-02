@@ -4,10 +4,7 @@ ParseModel provides an Active Record pattern to your Parse models on RubyMotion.
 
 I'm using ParseModel internally for a project, slowly but surely making it much, much better. When the project is near completion, I'm going to extract additional functionality into the gem.
 
-Some features to expect:
-* Easier queries (`Post.where(:author => @author)`)
-* Associations (`class Post; include Parse::Model; has_one :author; end`)
-* Overall, a much more Ruby-esque API that still leaves full access to all of the features in the Parse iOS SDK
+Expect a much more Ruby-esque API that still leaves full access to all of the features in the Parse iOS SDK. I'm not trying to re-implement featurs from the Parse iOS SDK, I just want to make them easier to use. Moreover, you should be able to rely on [Parse's iOS docs](https://parse.com/docs/ios/api/) when using ParseModel.
 
 If you have any questions or suggestions, email me.
 
@@ -54,21 +51,49 @@ users.map {|u| u.objectId}.include?(user.objectId) #=> true
 
 `ParseModel::User` delegates to `PFUser` in a very similar fashion as `ParseModel::Model` delegates to `PFOBject`.
 
+#### Current User
+
+```ruby
+if User.current_user
+	@user = User.current_user
+end
+```
+
 ### Queries
 
-For now, just use Parse's native methods:
+Parse provides some great ways to query for objects: in the current blocking thread (`PFQuery#findObjects`, or in the background with a block (`PFQuery#findObjectsInBackGroundWithBlock()`).
+
+These method names are a little long and verbose for my taste, so I added a little but of syntactic sugar:
 
 ```ruby
-query = PFQuery.queryWithClassName("Post")
-query.whereKey("title", equalTo:"Why RubyMotion Is Better Than Objective-C")
-results = query.findObjects
+query = Post.query #=> <ParseModel::Query> ... this is a subclass of PFQuery
+query.whereKey("author", equalTo:"Alan")
+query.find # finds objects in the main thread, like PFQuery#findObjects
+
+# OR
+
+query.find do |objects, error|
+	puts "You have #{objects.length} objects of class #{objects.first.class}."
+end
 ```
 
-Note that this will return an `Array` of `PFObjects`, not `ParseModel::Model` objects. To convert, just pass the `PFObject` instance into `ParseModel::Model#new`:
+By passing a two-argument block to `ParseModel::Query#find(&block)`, the query will automatically run in the background, with the code from the given block executing on completion.
 
-```ruby
-results.map! {|result| Post.new(result)}
-```
+Also note that `ParseModel::Query#find` and `ParseModel::Query#find(&block)` return `ParseModel::Model` objects, and not `PFObject`s.
+
+Because I want Parse's documentation to be as relevant as possible, here's how I'm matching up `ParseModel::Query`'s convenience methods to `PFQuery`:
+
+* `PFQuery#findObjects` => `ParseModel::Query#find`
+* `PFQuery#findObjectsInBackgroundWithBlock` => `ParseModel::Query#find(&block)`
+
+* `PFQuery#getFirstObject` => `ParseModel::Query#getFirst` (not yet implemented)
+* `PFQuery#getFirstObjectInBackgroundWithBlock` => `ParseModel::Query#getFirst(&block)` (not yet implemented)
+
+* `PFQuery#getObjectWithId` => `ParseModel::Query#get(id)` (not yet implemented)
+* `PFQuery#getObjectInBackgroundWithId:block:` => `ParseModel::Query#get(id, &block)` (not yet implemented)
+
+* `PFQuery#countObjects` => `ParseModel::Query#count` (not yet implemented)
+* `PFQuery#countObjectsInBackgroundWithBlock` => `ParseModel::Query#count(&block)`
 
 
 ## Installation

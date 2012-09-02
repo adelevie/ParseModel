@@ -19,6 +19,6 @@ module ParseModel
       	block.call(objects, error)
       end)
     end
-	
 	end
+
 end

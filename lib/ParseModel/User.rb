@@ -37,17 +37,22 @@ module ParseModel
       def field(name)
         @fields
       end
+
+      def self.current_user
+        if PFUser.currentUser
+          u = new
+          u.PFUser = PFUser.currentUser
+          return u
+        else
+          return nil
+        end
+      end
       
       def get_fields
         @fields ||= []
         @fields
       end
-      
-      def all
-        query = PFQuery.queryForUser
-        users = query.findObjects
-        users
-      end
+
     end
     
     def self.included(base)
