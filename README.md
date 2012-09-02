@@ -92,42 +92,42 @@ Because I want Parse's documentation to be as relevant as possible, here's how I
 	<tr>
 		<td>`ParseModel::Query#find`</td>
 		<td>`PFQuery#findObjects`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/findObjects</td>
 	</tr>
 	<tr>
 		<td>`ParseModel::Query#find(&block)`</td>
 		<td>`PFQuery#findObjectsInBackgroundWithBlock`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:</td>
 	</tr>
 	<tr>
 		<td>`ParseModel::Query#getFirst` (not yet implemented)</td>
 		<td>`PFQuery#getFirstObject`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObject</td>
 	</tr>
 	<tr>
 		<td>`ParseModel::Query#getFirst(&block)` (not yet implemented)</td>
 		<td>`PFQuery#getFirstObjectInBackgroundWithBlock`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:</td>
 	</tr>
 	<tr>
 		<td>`ParseModel::Query#get(id)` (not yet implemented)</td>
 		<td>`PFQuery#getObjectWithId`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObject</td>
 	</tr>
 	<tr>
 		<td>`ParseModel::Query#get(id, &block)` (not yet implemented)/td>
 		<td>`PFQuery#getObjectInBackgroundWithId:block:`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:</td>
 	</tr>
 	<tr>
 		<td>`ParseModel::Query#count` (not yet implemented)</td>
 		<td>`PFQuery#countObjects`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjects</td>
 	</tr>
 	<tr>
 		<td>`ParseModel::Query#count(&block)`</td>
 		<td>`PFQuery#countObjectsInBackgroundWithBlock`</td>
-		<td></td>
+		<td>https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:</td>
 	</tr>
 </table>
 
