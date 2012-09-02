@@ -1,6 +1,6 @@
 module ParseModel
 
-  class Model
+  module Model
     attr_accessor :PFObject
     
     def initialize(pf_object=nil)
