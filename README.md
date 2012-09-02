@@ -84,11 +84,11 @@ Also note that `ParseModel::Query#find` and `ParseModel::Query#find(&block)` ret
 Because I want Parse's documentation to be as relevant as possible, here's how I'm matching up `ParseModel::Query`'s convenience methods to `PFQuery`:
 
 <table>
-	<th>
-		<td>`ParseModel::Query` method</td>
-		<td>Equivalent `PFQuery` method</td>
-		<td>Parse Documentation</td>
-	</th>
+	<tr>
+		<th>`ParseModel::Query` method</th>
+		<th>Equivalent `PFQuery` method</th>
+		<th>Parse Documentation</th>
+	</tr>
 	<tr>
 		<td>`ParseModel::Query#find`</td>
 		<td>`PFQuery#findObjects`</td>
