@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "ParseModel/version"
+require File.expand_path('../lib/ParseModel/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "ParseModel"
