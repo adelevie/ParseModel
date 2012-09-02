@@ -38,7 +38,7 @@ module ParseModel
         @fields
       end
 
-      def self.current_user
+      def current_user
         if PFUser.currentUser
           u = new
           u.PFUser = PFUser.currentUser
