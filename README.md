@@ -70,7 +70,7 @@ query = Post.query #=> <ParseModel::Query> ... this is a subclass of PFQuery
 query.whereKey("author", equalTo:"Alan")
 query.find # finds objects in the main thread, like PFQuery#findObjects
 
-# OR
+# Or run the query in a background thread
 
 query.find do |objects, error|
 	puts "You have #{objects.length} objects of class #{objects.first.class}."
@@ -83,18 +83,55 @@ Also note that `ParseModel::Query#find` and `ParseModel::Query#find(&block)` ret
 
 Because I want Parse's documentation to be as relevant as possible, here's how I'm matching up `ParseModel::Query`'s convenience methods to `PFQuery`:
 
-* `PFQuery#findObjects` => `ParseModel::Query#find`
-* `PFQuery#findObjectsInBackgroundWithBlock` => `ParseModel::Query#find(&block)`
+<table>
+	<tr>
+		<td>`ParseModel::Query` method</td>
+		<td>Equivalent `PFQuery` method</td>
+		<td>Parse Documentation</td>
+	</tr>
+	<tr>
+		<td>`ParseModel::Query#find`</td>
+		<td>`PFQuery#findObjects`</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>`ParseModel::Query#find(&block)`</td>
+		<td>`PFQuery#findObjectsInBackgroundWithBlock`</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>`ParseModel::Query#getFirst` (not yet implemented)</td>
+		<td>`PFQuery#getFirstObject`</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>`ParseModel::Query#getFirst(&block)` (not yet implemented)</td>
+		<td>`PFQuery#getFirstObjectInBackgroundWithBlock`</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>`ParseModel::Query#get(id)` (not yet implemented)</td>
+		<td>`PFQuery#getObjectWithId`</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><`ParseModel::Query#get(id, &block)` (not yet implemented)/td>
+		<td>`PFQuery#getObjectInBackgroundWithId:block:`</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>`ParseModel::Query#count` (not yet implemented)</td>
+		<td>`PFQuery#countObjects`</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>`ParseModel::Query#count(&block)`</td>
+		<td>`PFQuery#countObjectsInBackgroundWithBlock`</td>
+		<td></td>
+	</tr>
+</table>
 
-* `PFQuery#getFirstObject` => `ParseModel::Query#getFirst` (not yet implemented)
-* `PFQuery#getFirstObjectInBackgroundWithBlock` => `ParseModel::Query#getFirst(&block)` (not yet implemented)
-
-* `PFQuery#getObjectWithId` => `ParseModel::Query#get(id)` (not yet implemented)
-* `PFQuery#getObjectInBackgroundWithId:block:` => `ParseModel::Query#get(id, &block)` (not yet implemented)
-
-* `PFQuery#countObjects` => `ParseModel::Query#count` (not yet implemented)
-* `PFQuery#countObjectsInBackgroundWithBlock` => `ParseModel::Query#count(&block)`
-
+Essentially, I'm omitting the words "object" and "InBackgroundWithBlock" from `ParseModel`'s method signatures. I think it's a reasonable assumption that it can simply be implied that we're dealing with "objects." If I'm passing a block, it's repetitive to declare that I'm passing a block.
 
 ## Installation
 
