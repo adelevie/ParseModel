@@ -21,11 +21,11 @@ module ParseModel
     end
 
     def getFirst(&block)
-    	return self.getFirstObject unless block_given?
+    	return @classObject.new(self.getFirstObject) unless block_given?
 
     	self.getFirstObjectInBackgroundWithBlock(lambda do |object, error|
       	obj = @classObject.new(object) if object
-      	block.call(object, error)
+      	block.call(obj, error)
     	end)
     end
 
