@@ -3,9 +3,11 @@ module ParseModel
     
     def setClassObject(classObject)
       @classObject = classObject
+      self
     end
 
     def initWithClassNameAndClassObject(className, classObject:myClassObject)
+      @className = className
       self.initWithClassName(className)
       self.setClassObject(myClassObject)
       self

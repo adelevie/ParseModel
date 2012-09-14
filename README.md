@@ -50,6 +50,18 @@ end)
 
 ```
 
+### New: Cloud Code functions (experimental)
+
+```ruby
+# with block:
+ParseModel::Cloud.callFunction("myFunction", {"myParam" => "myValue"}) do |result, error|
+  # do something...
+end
+
+# without block:
+ParseModel::Cloud.callFunction("myFunction", {"myParam" => "myValue"})
+```
+
 ### Users
 
 ```ruby
