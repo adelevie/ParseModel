@@ -50,7 +50,7 @@ end)
 
 ```
 
-### New: Cloud Code functions (experimental)
+### New: Cloud Code functions
 
 ```ruby
 # with block:
@@ -60,6 +60,53 @@ end
 
 # without block:
 ParseModel::Cloud.callFunction("myFunction", {"myParam" => "myValue"})
+```
+
+#### Cloud Code Examples
+```javascript
+Parse.Cloud.define('trivial', function(request, response) {
+  response.success(request.params);
+});
+```
+
+```ruby
+ParseModel::Cloud.callFunction("trivial", {"foo" => "bar"})
+#=> {"foo"=>"bar"}
+```
+
+```javascript
+// implementation of random queries using Parse Cloud Code
+// see https://parse.com/questions/random-search-its-possibile for setup details
+
+Parse.Cloud.define('randomNouns', function(request, response) {
+  var NounMaster = Parse.Object.extend("NounMaster");
+  var maxQuery = new Parse.Query(NounMaster);
+  maxQuery.first({
+    success: function(object) {
+      var max = object.get("nextWordIndex");
+      var n = 10;
+      if(request.params.count) { n = request.params.count; }
+      var arr = [];
+      while (arr.length < n) {
+        arr.push(Math.ceil(Math.random() * max));
+      }
+      var indexes = arr;
+      var Noun = Parse.Object.extend("Noun");
+      var nounQuery = new Parse.Query(Noun);
+      nounQuery.containedIn("index", indexes);
+      nounQuery.find({
+        success: function(results) { 
+          response.success(results); 
+        }
+      });
+    }
+  });
+});
+```
+
+```ruby
+ParseModel::Cloud.callFunction("randomNouns", {"count" => 3})
+#=> [#<PFObject:0x9620ee0>, #<PFObject:0x9629430>, #<PFObject:0x9629cd0>]
 ```
 
 ### Users
