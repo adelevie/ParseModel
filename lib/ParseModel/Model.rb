@@ -3,11 +3,16 @@ module ParseModel
   module Model
     attr_accessor :PFObject
     
-    def initialize(pf_object=nil)
-      if pf_object
-        @PFObject = pf_object
-      else
+    def initialize(arg=nil)
+      if arg.is_a?(PFObject) then
+        @PFObject = arg
+      else 
         @PFObject = PFObject.objectWithClassName(self.class.to_s)
+        if arg.is_a?(Hash) then
+          arg.each do |k,v|
+            @PFObject.setObject(v, forKey:k) if fields.include?(k)
+          end
+        end
       end
     end
     
