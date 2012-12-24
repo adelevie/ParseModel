@@ -221,7 +221,32 @@ Somewhere in your code, such as `app/app_delegate.rb` set your API keys:
 Parse.setApplicationId("1234567890", clientKey:"abcdefghijk")
 ```
 
-To install the Parse iOS SDK in your RubyMotion project, read [this](http://www.rubymotion.com/developer-center/guides/project-management/#_using_3rd_party_libraries) and  [this](http://stackoverflow.com/a/10453895/94154).
+To install the Parse iOS SDK in your RubyMotion project, add the Parse iOS SDK to your `vendor` folder, then add the following to your `Rakefile`:
+
+```ruby
+  app.libs << '/usr/lib/libz.1.1.3.dylib'
+  app.libs << '/usr/lib/libsqlite3.dylib'
+  app.frameworks += [
+    'AudioToolbox',
+    'Accounts',
+    'AdSupport',
+    'CFNetwork',
+    'CoreGraphics',
+    'CoreLocation',
+    'MobileCoreServices',
+    'QuartzCore',
+    'Security',
+    'Social',
+    'StoreKit',
+    'SystemConfiguration']
+
+
+  app.vendor_project('vendor/Parse.framework', :static,
+    :products => ['Parse'],
+    :headers_dir => 'Headers')
+```
+
+More info on installation: [this](http://www.rubymotion.com/developer-center/guides/project-management/#_using_3rd_party_libraries) and  [this](http://stackoverflow.com/a/10453895/94154).
 
 ## License
 
