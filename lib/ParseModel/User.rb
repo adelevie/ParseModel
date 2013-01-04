@@ -1,13 +1,13 @@
 module ParseModel
   module User
     attr_accessor :PFUser
-    
+
     RESERVED_KEYS = ['username', 'password', 'email']
-    
+
     def initialize
       @PFUser = PFUser.user
     end
-    
+
     def method_missing(method, *args, &block)
       if RESERVED_KEYS.include?(method)
         @PFUser.send(method)
@@ -24,18 +24,19 @@ module ParseModel
         super
       end
     end
-    
+
     def fields
       self.class.send(:get_fields)
     end
-    
-    module ClassMethods      
+
+    module ClassMethods
       def fields(*args)
         args.each {|arg| field(arg)}
       end
-    
+
       def field(name)
-        @fields
+        @fields ||= []
+        @fields << name
       end
 
       def current_user
@@ -47,17 +48,16 @@ module ParseModel
           return nil
         end
       end
-      
+
       def get_fields
-        @fields ||= []
         @fields
       end
 
     end
-    
+
     def self.included(base)
       base.extend(ClassMethods)
     end
-    
+
   end
 end
