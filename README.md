@@ -228,18 +228,20 @@ To install the Parse iOS SDK in your RubyMotion project, add the Parse iOS SDK t
   app.libs << '/usr/lib/libsqlite3.dylib'
   app.frameworks += [
     'AudioToolbox',
-    'Accounts',
-    'AdSupport',
     'CFNetwork',
     'CoreGraphics',
     'CoreLocation',
     'MobileCoreServices',
     'QuartzCore',
     'Security',
-    'Social',
     'StoreKit',
     'SystemConfiguration']
 
+  # in case app.deployment_target < '6.0'
+  app.weak_frameworks += [
+    'Accounts',
+    'AdSupport',
+    'Social']
 
   app.vendor_project('vendor/Parse.framework', :static,
     :products => ['Parse'],
