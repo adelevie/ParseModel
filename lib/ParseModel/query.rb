@@ -1,5 +1,5 @@
 module ParseModel
-  class Query < PFQuery
+  class ParseQuery < PFQuery
     
     def setClassObject(classObject)
       @classObject = classObject
