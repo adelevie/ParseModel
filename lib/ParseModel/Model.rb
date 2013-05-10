@@ -44,7 +44,7 @@ module ParseModel
       end
 
       def query
-        ParseModel::Query.alloc.initWithClassNameAndClassObject(self.name, classObject:self)
+        ParseModel::ParseQuery.alloc.initWithClassNameAndClassObject(self.name, classObject:self)
       end
 
       def get_fields
