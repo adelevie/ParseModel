@@ -160,53 +160,25 @@ Also note that `ParseModel::Query#find` and `ParseModel::Query#find(&block)` ret
 
 Because I want Parse's documentation to be as relevant as possible, here's how I'm matching up `ParseModel::Query`'s convenience methods to `PFQuery`:
 
-<table>
-  <tr>
-    <th>`ParseModel::Query` method</th>
-    <th>Equivalent `PFQuery` method</th>
-    <th>Parse Documentation</th>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#find`</td>
-    <td>`PFQuery#findObjects`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/findObjects'>here</a></td>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#find(&block)`</td>
-    <td>`PFQuery#findObjectsInBackgroundWithBlock`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:'>here</a></td>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#getFirst`</td>
-    <td>`PFQuery#getFirstObject`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObject'>here</a></td>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#getFirst(&block)`</td>
-    <td>`PFQuery#getFirstObjectInBackgroundWithBlock`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:'>here</a></td>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#get(id)`</td>
-    <td>`PFQuery#getObjectWithId`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObject'>here</a></td>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#get(id, &block)`</td>
-    <td>`PFQuery#getObjectInBackgroundWithId:block:`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:'>here</a></td>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#count`</td>
-    <td>`PFQuery#countObjects`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjects'>here</a></td>
-  </tr>
-  <tr>
-    <td>`ParseModel::Query#count(&block)`</td>
-    <td>`PFQuery#countObjectsInBackgroundWithBlock`</td>
-    <td><a href='https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:'>here</a></td>
-  </tr>
-</table>
+`ParseModel::Query` method | Equivalent `PFQuery` method
+---------------------------|----------------------------|
+`ParseModel::Query#find`| [`PFQuery#findObjects`][findObjects]
+`ParseModel::Query#find(&block)`| [`PFQuery#findObjectsInBackgroundWithBlock`][findObjectsInBackgroundWithBlock]
+`ParseModel::Query#getFirst`| [`PFQuery#getFirstObject`][getFirstObject]
+`ParseModel::Query#get(id)`| [`PFQuery#getObjectWithId`][getObjectWithId]
+`ParseModel::Query#get(id, &block)`| [`PFQuery#getObjectInBackgroundWithId:block:`][getObjectInBackgroundWithId]
+`ParseModel::Query#count`| [`PFQuery#countObjects`][countObjects]
+`ParseModel::Query#count(&block)`| [`PFQuery#countObjectsInBackgroundWithBlock`][countObjectsInBackgroundWithBlock]
+
+[findObjects]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/findObjects
+[findObjectsInBackGroundWithBlock]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:
+[getFirstObject]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObject
+[getFirstObjectInBackgroundWithBlock]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:
+[getObjectWithId]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getObjectWithId
+[getObjectInBackgroundWithId]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/getFirstObjectInBackgroundWithBlock:
+[countObjects]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjects
+[countObjectsInBackgroundWithBlock]: https://parse.com/docs/ios/api/Classes/PFQuery.html#//api/name/countObjectsInBackgroundWithBlock:
+
 
 Essentially, I'm omitting the words "object" and "InBackgroundWithBlock" from `ParseModel`'s method signatures. I think it's a reasonable assumption that it can simply be implied that we're dealing with "objects." If I'm passing a block, it's repetitive to declare that I'm passing a block.
 
