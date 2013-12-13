@@ -4,8 +4,12 @@ module ParseModel
 
     RESERVED_KEYS = ['username', 'password', 'email']
 
-    def initialize
-      @PFUser = PFUser.user
+    def initialize(pf_user_object=nil)
+      if pf_user_object
+        @PFUser = pf_user_object
+      else
+        @PFUser = PFUser.user
+      end
     end
 
     def method_missing(method, *args, &block)
@@ -47,6 +51,19 @@ module ParseModel
         else
           return nil
         end
+      end
+
+      def query
+        PFUser.query
+      end
+
+      def all(&block)
+        return PFUser.query.findObjects.map {|obj| self.new(obj)} unless block_given?
+
+        PFUser.query.findObjectsInBackgroundWithBlock(lambda do |objects, error|
+          objects = objects.map {|obj| self.new(obj)} if objects
+          block.call(objects, error)
+        end)
       end
 
       def get_fields
