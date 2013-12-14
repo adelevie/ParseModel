@@ -121,10 +121,21 @@ user.username = "adelevie"
 user.email = "adelevie@gmail.com"
 user.password = "foobar"
 user.signUp
-
-users = User.all # for more User query methods, see: https://parse.com/questions/why-does-querying-for-a-user-create-a-second-user-class 
-users.map {|u| u.objectId}.include?(user.objectId) #=> true
 ```
+Querying the User class requires a special PFQuery object.
+```ruby
+userQuery = User.query
+#=> #<PFQuery:0xb087810>
+userQuery.whereKey("email", equalTo:"bill@ms.com")
+userQuery.findObjects
+#=> [#<PFUser:0xafeae40>]
+```
+The User.all method simply runs a query with no conditions, and returns an array of User objects.
+```ruby
+users = User.all
+#=> [#<User:0xb4d5680 @PFUser=#<PFUser:0xb0dcad0>>]
+```
+For additional details on User query methods, see: https://parse.com/docs/ios_guide#users-querying/iOS
 
 `ParseModel::User` delegates to `PFUser` in a very similar fashion as `ParseModel::Model` delegates to `PFOBject`.
 
