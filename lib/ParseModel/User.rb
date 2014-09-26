@@ -13,7 +13,7 @@ module ParseModel
     end
 
     def method_missing(method, *args, &block)
-      if RESERVED_KEYS.include?(method)
+      if RESERVED_KEYS.include?("#{method}")
         @PFUser.send(method)
       elsif RESERVED_KEYS.map {|f| "#{f}="}.include?("#{method}")
         @PFUser.send(method, args.first)
